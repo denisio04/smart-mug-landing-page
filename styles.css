@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Lora:wght@400;700&display=swap');
+
+/* Reset básico y Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos Globales */
+body {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.7;
+    background-color: #FFFBF5; /* Fondo blanco hueso / crema pálido */
+    color: #5C504A; /* Texto principal gris cálido oscuro */
+    font-size: 16px;
+}
+
+/* Contenedor Principal */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+header {
+    background-color: #A07C6E; /* Marrón terracota suave */
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(92, 80, 74, 0.1);
+    /* border-bottom: 1px solid #8d6c5f; */ /* Opcional: Borde inferior si quieres más separación */
+}
+
+header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    color: #FDFBF9;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Main - Contenido Principal */
+main {
+    overflow: hidden;
+}
+
+/* Sección Hero */
+#hero {
+    background-color: #FFF0E9; /* Fondo salmón muy pálido */
+    padding: 80px 0 60px 0;
+    text-align: center;
+}
+
+#hero h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.8rem;
+    color: #7a5f53;
+    margin-bottom: 15px;
+}
+
+#hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    line-height: 1.8;
+}
+
+.hero-image {
+    display: block;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(160, 124, 110, 0.15);
+    border: 1px solid #EAD9D1; /* Borde añadido: Terracota muy pálido para definir */
+}
+
+/* Sección Features */
+#features {
+    padding: 70px 0;
+    background-color: #FFFFFF; /* Fondo blanco limpio */
+}
+
+#features h2 {
+    font-family: 'Lora', serif;
+    text-align: center;
+    font-size: 2.2rem;
+    color: #A07C6E;
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.feature-item {
+    background-color: #FFFBF5; /* Fondo crema */
+    padding: 30px 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(160, 124, 110, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #EAD9D1; /* Borde añadido: Terracota muy pálido, igual que imagen */
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(160, 124, 110, 0.12);
+}
+
+.feature-item h3 {
+    font-size: 1.3rem;
+    color: #F5A38C; /* Acento Principal - Coral cálido */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Sección Call to Action (CTA) */
+#cta {
+    background-color: #FFF0E9; /* Fondo salmón pálido */
+    padding: 70px 0;
+    text-align: center;
+    /* border-top: 1px solid #f3e2db; */ /* Opcional: Borde superior para separar de features */
+}
+
+#cta h2 {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    color: #7a5f53;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #F5A38C; /* Acento Principal - Coral cálido */
+    color: #FFFFFF;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    border: none; /* Mantenemos sin borde el botón principal */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(245, 163, 140, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: #EACAA4; /* Acento Secundario - Dorado suave */
+    color: #5C504A;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(234, 202, 164, 0.4);
+}
+
+/* Footer */
+footer {
+    background-color: #A07C6E; /* Marrón terracota suave */
+    color: rgba(253, 251, 249, 0.8);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 0;
+    /* border-top: 1px solid #8d6c5f; */ /* Opcional: Borde superior más oscuro */
+}
+
+/* --- Media Query para Responsividad --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    #hero h2 {
+        font-size: 2.2rem;
+    }
+
+    #features h2,
+    #cta h2 {
+        font-size: 1.8rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    #hero, #features, #cta {
+        padding: 50px 0;
+    }
+
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
