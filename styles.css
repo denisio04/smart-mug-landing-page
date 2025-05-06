@@ -1,208 +1,631 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Lora:wght@400;700&display=swap');
+/* Importar Fuentes (sin cambios) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
 
-/* Reset básico y Box Sizing */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Variables CSS (sin cambios) */
+:root {
+    --primary-color: #A07C6E;
+    --secondary-color: #7a5f53;
+    --accent-color: #F5A38C;
+    --accent-hover-color: #EACAA4;
+    --bg-light: #FFFBF5;
+    --bg-medium: #FFF0E9;
+    --bg-white: #FFFFFF;
+    --text-dark: #5C504A;
+    --text-light: #FDFBF9;
+    --border-color: #EAD9D1;
+
+    --font-primary: 'Poppins', sans-serif;
+    --font-headings: 'Playfair Display', serif;
 }
 
-/* Estilos Globales */
+/* Reset Básico y Box Sizing (sin cambios) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Estilos Globales (sin cambios) */
+html { scroll-behavior: smooth; }
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--font-primary);
     line-height: 1.7;
-    background-color: #FFFBF5; /* Fondo blanco hueso / crema pálido */
-    color: #5C504A; /* Texto principal gris cálido oscuro */
+    background-color: var(--bg-light);
+    color: var(--text-dark);
     font-size: 16px;
+    overflow-x: hidden;
 }
 
-/* Contenedor Principal */
+/* Contenedor Principal (sin cambios) */
 .container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
-/* Header */
-header {
-    background-color: #A07C6E; /* Marrón terracota suave */
-    padding: 20px 0;
-    box-shadow: 0 2px 5px rgba(92, 80, 74, 0.1);
-    /* border-bottom: 1px solid #8d6c5f; */ /* Opcional: Borde inferior si quieres más separación */
+/* --- Header --- */
+
+#main-header {
+    /* Elimina o comenta la línea background-color anterior */
+    /* background-color: var(--primary-color); */
+
+    /* Añade el gradiente */
+    background: linear-gradient(330deg, var(--primary-color) 0%, #5a3d33 100%); /* Ajusta el segundo color (#8f6f63 es un marrón terracota ligeramente más oscuro) y el ángulo (170deg) a tu gusto */
+
+    /* Mantenemos los otros estilos */
+    padding: 15px 0;
+    color: var(--text-light);
+    /* position: relative; y z-index: ya no son estrictamente necesarios sin overlay, pero no hacen daño */
+    position: relative;
+    z-index: 5; /* Puedes bajar el z-index si quieres */
 }
 
-header .container {
+/* Header Overlay REMOVED */
+/* .header-overlay { ... } */
+
+.header-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    /* position: relative; NO LONGER NEEDED */
+    /* z-index: 2; NO LONGER NEEDED */
+}
+
+.logo { /* Sin cambios */
+    font-family: var(--font-headings);
+    font-size: 1.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.main-nav { /* Sin cambios */
+    display: flex;
+    align-items: center;
+}
+.main-nav a { /* Sin cambios */
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+.main-nav a:hover { /* Sin cambios */
+    color: var(--accent-hover-color);
+}
+
+
+/* --- Main Content Sections --- (sin cambios) */
+.content-section { padding: 80px 0; }
+.content-section.alt-bg { background-color: var(--bg-medium); }
+.content-section.cta-section { background-color: var(--secondary-color); color: var(--text-light); text-align: center; }
+.content-section.cta-section h2 { color: var(--text-light); }
+.section-title { font-family: var(--font-headings); text-align: center; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; }
+.section-intro { text-align: center; max-width: 700px; margin: 0 auto 50px auto; font-size: 1.1rem; line-height: 1.8; }
+
+/* --- Hero Section --- */
+#hero {
+    position: relative;
+    padding: 80px 0 100px; /* Ajustado padding para más espacio abajo */
+    text-align: center;
+    overflow: hidden;
+    background-color: rgba(40, 30, 25, 0.55);
+    color: var(--text-light);
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/coffee_table_bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    filter: blur(6px);
+    z-index: -1;
+    transform: scale(1.05);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex; /* Para mejor control del espaciado del carrusel */
+    flex-direction: column;
     align-items: center;
 }
 
-.logo {
-    font-family: 'Lora', serif;
-    font-size: 1.8rem;
-    color: #FDFBF9;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-/* Main - Contenido Principal */
-main {
-    overflow: hidden;
-}
-
-/* Sección Hero */
-#hero {
-    background-color: #FFF0E9; /* Fondo salmón muy pálido */
-    padding: 80px 0 60px 0;
-    text-align: center;
-}
-
 #hero h2 {
-    font-family: 'Lora', serif;
-    font-size: 2.8rem;
-    color: #7a5f53;
+    font-family: var(--font-headings);
+    font-size: 3.2rem;
+    color: var(--text-light);
     margin-bottom: 15px;
+    line-height: 1.3;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-#hero p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
+#hero .subtitle {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 30px auto; /* Reducido margen inferior */
     line-height: 1.8;
+    color: var(--text-light);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.hero-image {
+/* --- ESTILOS DEL CARRUSEL DE TAZAS (AJUSTADOS) --- */
+.mug-slider-container {
+    position: relative;
+    /* AUMENTAMOS EL TAMAÑO MÁXIMO DEL CONTENEDOR DEL CARRUSEL */
+    max-width: 400px; /* ANTES: 320px. Ajusta este valor según necesites */
+    width: 85%;      /* Puedes ajustar el porcentaje para móviles también */
+    margin: 30px auto 50px; /* Aumentado un poco el margen */
+    /* OPCIONAL: Sombra sutil para dar profundidad al contenedor del carrusel */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
+    border-radius: 18px; /* Bordes más redondeados para el contenedor */
+    /* overflow: hidden; /* Importante si las flechas están DENTRO y quieres bordes redondeados perfectos */
+}
+
+.mug-slider {
+    display: flex;
+    overflow: hidden; /* Esencial */
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Mantenemos para forma cuadrada, o usa height fija */
+    border-radius: 15px; /* Bordes redondeados para el área de imagen.
+                        Debe ser ligeramente menor o igual al del mug-slider-container
+                        si quieres que el contenedor tenga su propio borde visible.
+                        Si el contenedor tiene overflow:hidden, este es el que se verá. */
+    background-color: rgba(0,0,0,0); /* Un fondo sutil si las imágenes no llenan el espacio */
+}
+
+.mug-slider .slide {
+    /* ... (transición, opacity, position, etc. sin cambios) ... */
+    min-width: 100%;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease-in-out;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    z-index: 0;
+}
+.mug-slider .slide.prev-slide {
+    /* ... (sin cambios) ... */
+    transform: translateX(-100%);
+    opacity: 0;
+    z-index: 0;
+}
+
+.mug-slider .slide.active {
+    /* ... (sin cambios) ... */
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 1;
+}
+
+
+.mug-slider .slide img {
     display: block;
-    max-width: 280px;
+    /* AUMENTAMOS EL TAMAÑO DE LAS IMÁGENES DENTRO DEL SLIDE */
+    max-width: 95%; /* ANTES: 90%. Ocuparán más espacio del slide */
+    max-height: 95%;/* ANTES: 90% */
     height: auto;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(160, 124, 110, 0.15);
-    border: 1px solid #EAD9D1; /* Borde añadido: Terracota muy pálido para definir */
+    object-fit: contain;
+    /* border-radius: 8px; /* Bordes redondeados para la imagen misma, si quieres */
+                           /* Esto es útil si quieres un efecto de "marco" o si el .mug-slider tiene un color de fondo. */
 }
 
-/* Sección Features */
-#features {
-    padding: 70px 0;
-    background-color: #FFFFFF; /* Fondo blanco limpio */
+/* BOTONES DEL SLIDER MÁS PEQUEÑOS */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.15); /* Ligeramente menos opaco */
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    /* padding: 8px 10px; ANTES: 10px 12px */
+    font-size: 16px;   /* ANTES: 20px */
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    line-height: 1;
+    /* TAMAÑO DE BOTONES REDUCIDO */
+    width: 32px;       /* ANTES: 40px */
+    height: 32px;      /* ANTES: 40px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#features h2 {
-    font-family: 'Lora', serif;
+.slider-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.05); /* Reducido un poco el scale del hover */
+}
+
+.slider-btn.prev {
+    left: 10px; /* Ajustado para que no estén tan afuera si el contenedor es más grande */
+                /* Si prefieres que estén fuera, usa un valor negativo como -10px */
+}
+
+.slider-btn.next {
+    right: 10px; /* Ajustado */
+}
+
+/* DOTS (Sin cambios, pero asegúrate que se vean bien con el nuevo tamaño) */
+.slider-dots {
     text-align: center;
-    font-size: 2.2rem;
-    color: #A07C6E;
-    margin-bottom: 50px;
+    margin-top: 20px; /* Aumentado un poco el margen */
 }
 
+.slider-dots .dot {
+    display: inline-block;
+    width: 9px; /* Ligeramente más pequeños si quieres */
+    height: 9px;
+    background-color: rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.slider-dots .dot.active {
+    background-color: var(--text-light);
+    transform: scale(1.25);
+}
+
+
+/* --- Media Queries (Ajustes para el carrusel en móvil) --- */
+/* Es importante que las media queries que afectan al slider estén DESPUÉS
+   de los estilos base del slider para que los puedan sobreescribir correctamente. */
+
+@media (max-width: 768px) {
+    /* ... (tus media queries existentes para otros elementos) ... */
+    #hero { padding: 60px 0 80px; }
+    #hero h2 { font-size: 2.5rem; }
+
+    .mug-slider-container {
+        max-width: 300px; /* Ajusta para móvil */ /* ANTES: 280px */
+        width: 75%; /* ANTES: 70% */
+        margin-bottom: 35px; /* ANTES: 30px */
+        border-radius: 15px; /* Bordes un poco menos redondeados en móvil */
+    }
+    .mug-slider {
+        border-radius: 12px; /* Consistente con el contenedor */
+    }
+    .slider-btn {
+        /* Los botones ya son pequeños, podrían mantenerse así o ajustarlos un poco más si es necesario */
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .slider-btn.prev {
+        left: 5px; /* Más cerca en pantallas medianas */
+    }
+    .slider-btn.next {
+        right: 5px;
+    }
+    .slider-dots {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* ... (tus media queries existentes para otros elementos) ... */
+    #hero h2 { font-size: 2.1rem; }
+
+    .mug-slider-container {
+        max-width: 260px; /* Ajusta para móvil pequeño */ /* ANTES: 240px */
+        width: 80%; /* ANTES: 65% */
+        border-radius: 12px;
+    }
+    .mug-slider {
+        border-radius: 10px;
+    }
+    .slider-btn { /* Pueden quedarse como en 768px o reducir un poco más */
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
+    .slider-btn.prev {
+        left: 5px; /* Para móviles muy pequeños, pueden estar justo en el borde interno */
+    }
+    .slider-btn.next {
+        right: 5px;
+    }
+}
+
+
+/* --- CTA Button --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--bg-white) !important; /* Forzar color blanco */
+    margin-top: 60px;
+    padding: 16px 40px;
+    font-size: 1.15rem;
+    font-weight: 700; /* Más bold */
+    text-decoration: none;
+    border-radius: 50px; /* Botón tipo píldora */
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 18px rgba(245, 163, 140, 0.4);
+    letter-spacing: 0.5px;
+    cursor: pointer; /* Añadir cursor pointer */
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: var(--accent-hover-color);
+    color: var(--text-dark) !important; /* Cambiar color texto en hover */
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(234, 202, 164, 0.5);
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    /* ... (tus media queries existentes) ... */
+    #hero { padding: 60px 0 80px; } /* Ajuste de padding hero */
+    #hero h2 { font-size: 2.5rem; }
+    .mug-slider-container { width: 70%; max-width: 280px; margin-bottom: 30px;}
+    .slider-btn { padding: 8px 10px; font-size: 18px; width: 35px; height: 35px;}
+    .slider-btn.prev { left: -10px; }
+    .slider-btn.next { right: -10px; }
+}
+
+@media (max-width: 480px) {
+    /* ... (tus media queries existentes) ... */
+    #hero h2 { font-size: 2.1rem; }
+    .mug-slider-container { width: 65%; max-width: 240px;}
+    .slider-btn.prev { left: 0px; } /* Dentro del contenedor en móviles muy pequeños */
+    .slider-btn.next { right: 0px; }
+}
+
+/* Styles for the CTA button within the dark CTA section */
+.content-section.cta-section .cta-button {
+    background-color: var(--accent-color); /* Mismo color para consistencia */
+    color: var(--bg-white) !important;
+    box-shadow: 0 5px 18px rgba(245, 163, 140, 0.4);
+}
+
+.content-section.cta-section .cta-button:hover,
+.content-section.cta-section .cta-button:focus {
+    background-color: var(--bg-light);
+    color: var(--secondary-color) !important;
+    box-shadow: 0 8px 25px rgba(255, 251, 245, 0.3);
+}
+
+
+/* --- Features Section --- */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 35px;
+    gap: 40px; /* Más espacio */
+    margin-top: 50px;
 }
 
 .feature-item {
-    background-color: #FFFBF5; /* Fondo crema */
-    padding: 30px 25px;
-    border-radius: 10px;
+    background-color: var(--bg-white); /* Fondo blanco para destacar en fondo alterno */
+    padding: 35px 30px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(160, 124, 110, 0.08);
+    box-shadow: 0 6px 20px rgba(160, 124, 110, 0.09);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #EAD9D1; /* Borde añadido: Terracota muy pálido, igual que imagen */
+    border: 1px solid var(--border-color);
+    display: flex; /* Flexbox para alinear contenido */
+    flex-direction: column;
+    align-items: center;
 }
 
 .feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(160, 124, 110, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(160, 124, 110, 0.15);
+}
+
+.feature-icon {
+    width: 55px; /* Tamaño Icono */
+    height: auto;
+    margin-bottom: 25px;
 }
 
 .feature-item h3 {
-    font-size: 1.3rem;
-    color: #F5A38C; /* Acento Principal - Coral cálido */
+    font-size: 1.4rem;
+    color: var(--secondary-color);
     margin-bottom: 15px;
-    font-weight: 600;
+    font-weight: 600; /* Poppins semibold */
 }
 
 .feature-item p {
     font-size: 0.95rem;
     line-height: 1.6;
+    flex-grow: 1; /* Para que todos los párrafos ocupen espacio similar */
 }
 
-/* Sección Call to Action (CTA) */
-#cta {
-    background-color: #FFF0E9; /* Fondo salmón pálido */
-    padding: 70px 0;
+/* --- How It Works Section --- */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
     text-align: center;
-    /* border-top: 1px solid #f3e2db; */ /* Opcional: Borde superior para separar de features */
 }
 
-#cta h2 {
-    font-family: 'Lora', serif;
-    font-size: 2rem;
-    color: #7a5f53;
-    margin-bottom: 30px;
+.step-item {
+    padding: 20px;
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: #F5A38C; /* Acento Principal - Coral cálido */
-    color: #FFFFFF;
-    padding: 15px 35px;
-    font-size: 1.1rem;
+.step-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 auto 15px auto;
+    box-shadow: 0 3px 8px rgba(245, 163, 140, 0.3);
+}
+
+.step-icon {
+    width: 50px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.step-item h4 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
     font-weight: 600;
-    text-decoration: none;
-    border-radius: 30px;
-    border: none; /* Mantenemos sin borde el botón principal */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(245, 163, 140, 0.3);
-    letter-spacing: 0.5px;
 }
 
-.cta-button:hover,
-.cta-button:focus {
-    background-color: #EACAA4; /* Acento Secundario - Dorado suave */
-    color: #5C504A;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(234, 202, 164, 0.4);
+.step-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
-/* Footer */
+/* --- Testimonials Section --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.testimonial-item {
+    background-color: var(--bg-light); /* Fondo crema */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(160, 124, 110, 0.08);
+    border-left: 5px solid var(--accent-color); /* Borde lateral distintivo */
+}
+
+.testimonial-item blockquote {
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #665a54; /* Un poco más suave que el texto principal */
+}
+
+.testimonial-item blockquote p::before {
+    content: '“'; /* Comilla inicial */
+    font-size: 2rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-right: 5px;
+    line-height: 0;
+}
+.testimonial-item blockquote p::after {
+     content: '”'; /* Comilla final */
+    font-size: 2rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-left: 5px;
+    line-height: 0;
+}
+
+
+.testimonial-item cite {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-style: normal;
+}
+
+/* --- Footer --- */
 footer {
-    background-color: #A07C6E; /* Marrón terracota suave */
+    background-color: var(--secondary-color); /* Más oscuro para contraste */
     color: rgba(253, 251, 249, 0.8);
     text-align: center;
-    padding: 30px 0;
-    margin-top: 0;
-    /* border-top: 1px solid #8d6c5f; */ /* Opcional: Borde superior más oscuro */
+    padding: 40px 0;
+    margin-top: 0; /* Quitar margen si la sección anterior tiene fondo */
 }
 
-/* --- Media Query para Responsividad --- */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacio entre elementos */
+}
+
+.footer-links a {
+    color: rgba(253, 251, 249, 0.8);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--text-light);
+}
+
+.social-icons a {
+    color: rgba(253, 251, 249, 0.8);
+    font-size: 1.5rem; /* Ajusta si usas iconos */
+    margin: 0 8px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-hover-color);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 10px; /* Espacio extra */
+}
+
+/* --- Media Queries --- (Estas sí estaban bien) */
+@media (max-width: 992px) {
+    .container {
+        max-width: 900px;
+    }
+    #hero h2 { font-size: 2.8rem; }
+    .section-title { font-size: 2.2rem; }
+}
+
 @media (max-width: 768px) {
-    body {
-        font-size: 15px;
-    }
+    body { font-size: 15px; }
+    #main-header { padding: 10px 0; }
+    .header-container { flex-direction: column; gap: 10px;}
+    .main-nav { margin-top: 10px; }
 
-    #hero h2 {
-        font-size: 2.2rem;
-    }
+    .content-section { padding: 60px 0; }
+    #hero { padding: 80px 0; } /* Adjust hero padding for mobile */
 
-    #features h2,
-    #cta h2 {
-        font-size: 1.8rem;
-    }
+    #hero h2 { font-size: 2.5rem; } /* Adjust hero title size */
+    #hero .subtitle { font-size: 1.1rem; }
+    .section-title { font-size: 2rem; }
+    .section-intro { font-size: 1rem; margin-bottom: 40px;}
 
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
+    .features-grid { grid-template-columns: 1fr; gap: 30px; }
+    .steps-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 25px; }
 
-    #hero, #features, #cta {
-        padding: 50px 0;
-    }
+    .cta-button { padding: 14px 35px; font-size: 1.05rem; }
 
-    .cta-button {
-        padding: 12px 30px;
-        font-size: 1rem;
-    }
+    footer { padding: 30px 0; }
+    .footer-content { gap: 12px; }
+}
+
+@media (max-width: 480px) {
+    #hero h2 { font-size: 2.1rem; }
+    #hero .subtitle { font-size: 1rem; }
+    .section-title { font-size: 1.8rem; }
+    .logo { font-size: 1.6rem; }
+    .main-nav a { margin-left: 15px; font-size: 0.9rem;}
+    .steps-grid { grid-template-columns: 1fr; }
+
+    .cta-button { padding: 12px 30px; font-size: 1rem; }
+    .footer-links { font-size: 0.85rem; }
+    .footer-links a { margin: 0 5px; }
 }

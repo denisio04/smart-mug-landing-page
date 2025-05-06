@@ -1,65 +1,168 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EmberFlow Mug - Tu Sorbo Perfecto</title> <!-- Usa tu nombre/lema -->
+    <title>EmberFlow Mug - Your Perfect Sip, Always | Smart Mug</title>
+    <meta name="description" content="Discover EmberFlow Mug, the smart mug that keeps your coffee or tea at the ideal temperature for hours. Elegant design, precise control, and long-lasting battery. Order yours!">
+
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/mug.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Fuente Ejemplo -->
+    <link rel="icon" href="images/icons/mug_icon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1 class="logo">EmberFlow Mug</h1> <!-- Tu nombre de producto -->
+    <header id="main-header">
+        <div class="container header-container">
+            <h1 class="logo">EmberFlow Mug</h1>
+            <nav class="main-nav">
+                <!-- Optional Links -->
+            </nav>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero">
             <div class="container hero-content">
-                <h2>Tu sorbo perfecto, siempre.</h2> <!-- Tu lema -->
-                <p>Dile adiós al café frío y al té quemado...</p> <!-- Tu descripción -->
-                <img src="images/EmberFlow.png" alt="Taza Inteligente EmberFlow" class="hero-image">
-                <!-- ^^^ Necesitarás una imagen aquí más tarde -->
+                <h2>Your Perfect Sip, Guaranteed.</h2>
+                <p class="subtitle">
+                    The smart mug that keeps your drink at the exact temperature you desire, from the first sip to the last.
+                </p>
+                <div class="mug-slider-container">
+                    <div class="mug-slider">
+                        <div class="slide active"><img src="images/mug_black.png" alt="EmberFlow Mug - Black"></div>
+                        <div class="slide"><img src="images/mug_white.png" alt="EmberFlow Mug - White"></div>
+                        <div class="slide"><img src="images/mug_red.png" alt="EmberFlow Mug - Red"></div>
+                        <div class="slide"><img src="images/mug_blue.png" alt="EmberFlow Mug - Blue"></div>
+                    </div>
+                    <button class="slider-btn prev" aria-label="Previous Mug">❮</button>
+                    <button class="slider-btn next" aria-label="Next Mug">❯</button>
+                    <div class="slider-dots">
+                        <!-- Los dots se generarán con JS -->
+                    </div>
+                </div>
+                <a href="#cta-final" class="cta-button primary-cta">
+                    Discover EmberFlow
+                </a>
             </div>
         </section>
 
-        <section id="features">
+        <section id="problem-solution" class="content-section">
             <div class="container">
-                <h2>Características Principales</h2>
+                <h2 class="section-title">Tired of Cold Coffee?</h2>
+                <p class="section-intro">
+                    We've all been there: you make your favorite hot drink, get distracted for a moment, and... it's gone cold. Or worse, you burn yourself on the first sip! EmberFlow Mug is designed to eliminate that frustration.
+                </p>
+            </div>
+        </section>
+
+        <section id="features" class="content-section alt-bg">
+            <div class="container">
+                <h2 class="section-title">Engineered for Your Enjoyment</h2>
                 <div class="features-grid">
                     <div class="feature-item">
-                        <h3>Control Preciso de Temperatura</h3>
-                        <p>Selecciona tu temperatura ideal...</p>
+                        <img src="images/icons/temperature.png" alt="Temperature Icon" class="feature-icon">
+                        <h3>Precise Temperature Control</h3>
+                        <p>
+                            Choose your ideal temperature (between 120°F and 145°F) via the app or directly on the mug. Stays hot for up to 1.5 hours on its own, or all day with its charging coaster.
+                        </p>
                     </div>
                     <div class="feature-item">
-                        <h3>Diseño Elegante y Duradero</h3>
-                        <p>Fabricada con cerámica de alta calidad...</p>
+                        <img src="images/icons/design.png" alt="Design Icon" class="feature-icon">
+                        <h3>Elegant & Durable Design</h3>
+                        <p>
+                            Crafted with stainless steel and a scratch-resistant ceramic coating. Its minimalist design fits any environment. Available in various colors.
+                        </p>
                     </div>
                     <div class="feature-item">
-                        <h3>Batería de Larga Duración</h3>
-                        <p>Disfruta de tu bebida perfecta...</p>
+                        <img src="images/icons/smart.png" alt="Smart Features Icon" class="feature-icon">
+                        <h3>Smart & Easy to Use</h3>
+                        <p>
+                            Turns on when it detects liquid and off when empty. Connects to your smartphone (Ember App) to customize presets and notifications. Water-resistant (IPX7).
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="cta">
+        <section id="how-it-works" class="content-section">
             <div class="container">
-                <h2>¿Listo para la Taza Perfecta?</h2>
-                <a href="#" class="cta-button">Pide la Tuya Hoy</a> <!-- Tu texto de botón -->
-                <!-- El enlace href="#" no va a ningún lado por ahora -->
+                <h2 class="section-title">As Easy As 1-2-3-4</h2>
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <img src="images/icons/charge.png" alt="Charge Icon" class="step-icon">
+                        <h4>Charge</h4>
+                        <p>Place your EmberFlow on its charging coaster.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <img src="images/icons/pour.png" alt="Pour Icon" class="step-icon">
+                        <h4>Pour</h4>
+                        <p>Add your favorite coffee, tea, or hot beverage.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <img src="images/icons/selection.png" alt="Select Icon" class="step-icon">
+                        <h4>Select</h4>
+                        <p>Choose the perfect temperature via the app or mug.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <img src="images/icons/enjoy.png" alt="Enjoy Icon" class="step-icon">
+                        <h4>Enjoy</h4>
+                        <p>Savor every sip at the ideal temperature.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="content-section alt-bg">
+            <div class="container">
+                <h2 class="section-title">What Our Users Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-item">
+                        <blockquote><p>"Absolutely incredible! My coffee stays perfect for hours. I can't live without my EmberFlow anymore."</p></blockquote>
+                        <cite>- Sarah P.</cite>
+                    </div>
+                    <div class="testimonial-item">
+                        <blockquote><p>"The perfect gift. My husband loves it, he uses it every day in his home office."</p></blockquote>
+                        <cite>- Michael B.</cite>
+                    </div>
+                    <div class="testimonial-item">
+                        <blockquote><p>"Worth every penny. The quality is outstanding and the app works wonderfully."</p></blockquote>
+                        <cite>- Emily R.</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta-final" class="content-section cta-section">
+            <div class="container">
+                <h2>Ready to Transform Your Experience?</h2>
+                <p>Leave cold or burnt drinks behind. Get your EmberFlow Mug today.</p>
+                <a href="#" class="cta-button">Order Yours Now!</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>© 2024 EmberFlow Mug. Todos los derechos reservados.</p>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a> |
+                <a href="#">FAQ</a> |
+                <a href="#">Contact</a>
+            </div>
+            <div class="social-icons">
+                <!-- Add your social media icons/links here -->
+            </div>
+            <p class="copyright">© 2024 EmberFlow Mug. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="script.js"></script> <!-- ¡¡¡ETIQUETA SCRIPT AÑADIDA AQUÍ!!! -->
 </body>
 </html>
